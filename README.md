@@ -8,4 +8,4 @@ Exercícios desenvolvidos durante o curso:
 
 2) [Usando Diretivas - Parte I](https://github.com/glaucia86/curso-angularjs-rodrigo-banas/tree/master/2%20-%20Usando%20Diretivas%20Part%20I)
 
-3) [Usando Diretivas - Parte II]()
+3) [Usando Diretivas - Parte II](https://github.com/glaucia86/curso-angularjs-rodrigo-banas/tree/master/3%20-%20Usando%20Diretivas%20Part%20II)
