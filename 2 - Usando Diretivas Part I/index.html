@@ -10,6 +10,11 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .table {
+            margin-top: 20px;
+
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +36,18 @@
 </head>
 <body ng-controller="listaTelefonicaCtrl">
     <div class="jumbotron">
-        <h4>{{app}}</h4>
+        <h3>{{app}}</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+            </tr>
+            <tr ng-repeat="contato in contatos">
+                <td ng-repeat="(key, value) in contato">
+                    {{value}}
+                </td>
+            </tr>
+        </table>
     </div>   
 </body>
 </html>
