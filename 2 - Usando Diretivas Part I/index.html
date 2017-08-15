@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br", ng-app="listaTelefonica">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Lista Telefônica</title>
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        <title>Lista Telefônica</title>  
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css"> 
         <style>
             .jumbotron {
                 width: 400px;
@@ -14,31 +13,36 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-
             .table {
                 margin-top: 20px;
             }
-
             .form-control {
                 margin-bottom: 5px;
             }
         </style>
     
-
         <script src="lib/angular/angular.js"></script>
         <script>
             angular.module("listaTelefonica", []);
             angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope) {
                 $scope.app = "Lista Telefônica";
                 $scope.contatos = [
-                    {nome: "Glaucia", telefone: "7777-7777"},
-                    {nome: "José", telefone: "8888-7777"},
-                    {nome: "Jurema", telefone: "9999-7777"}
+                    { nome: "Glaucia", telefone: "7777-7777" },
+                    { nome: "José", telefone: "8888-7777" },
+                    { nome: "Jurema", telefone: "9999-7777" }
+                ];
+                $scope.operadoras = [
+                  { nome: "Oi" , codigo: "14", categoria: "Celular" },
+                  { nome: "Vivo" , codigo: "15", categoria: "Celular" },
+                  { nome: "Tim" , codigo: "41", categoria: "Celular" },
+                  { nome: "Claro" , codigo: "21", categoria: "Celular" },
+                  { nome: "GVT", codigo: "25", categoria: "Fixo" },
+                  { nome: "Embratel", codigo: "22", categoria: "Fixo"}
                 ];
 
                 //Função responsável por 'Adicionar Novo Contato':
-                $scope.adicionarContato = function() {
-                    $scope.contatos.push();    
+                $scope.adicionarContato = function(contato) {
+                    $scope.contatos.push({contato});    
                 };
             });
         </script>
@@ -55,13 +59,14 @@
             <tr ng-repeat="contato in contatos">
                 <td>{{contato.nome}}</td>
                 <td>{{contato.telefone}}</td>
+                <td>{{contato.operadora.nome}}</td>
             </tr>
         </table>
         <hr/>
-        
-        <input class="form-control" type="text" ng-model="nome" placeholder="Nome"/>
-        <input class="form-control" type="text" ng-model="telefone" placeholder="Telefone"/>
-        <button class="btn btn-primary btn-block" ng-click="adicionarContato()" type="">Adicionar Contato</button>
+
+        <input class="form-control" type="text" ng-model="contato.nome" placeholder="Nome" />
+        <input class="form-control" type="text" ng-model="contato.telefone" placeholder="Telefone" /> 
+        <button class="btn btn-primary btn-block" ng-click="adicionarContato(contato)" type="">Adicionar Contato</button>
     </div>   
 </body>
 </html>
